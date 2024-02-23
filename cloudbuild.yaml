@@ -3,13 +3,13 @@ steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
   #args
-    args: ['build', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:latest', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:latest', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA', '.']
 
   # Push the image to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:latest']
+    args: ['push', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:latest']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:$COMMIT_SHA']
+    args: ['push', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA']
 
   # Deploy the container to Google Cloud Run
   # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -17,9 +17,9 @@ steps:
   #   args:
   #     - 'run'
   #     - 'deploy'
-  #     - 'reeba-midterm'
+  #     - 'betty-midterm'
   #     - '--image'
-  #     - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:latest'
+  #     - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:latest'
   #     - '--region'
   #     - 'northamerica-northeast2'
   #     - '--platform'
@@ -31,8 +31,8 @@ steps:
 #   logging: 'Adwaith-log'
 
 images:
-  - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:latest'
-  - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:$COMMIT_SHA'
+  - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:latest'
+  - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA'
 
 
  
