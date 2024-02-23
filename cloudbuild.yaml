@@ -3,7 +3,7 @@ steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
   #args
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:latest', '-t', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:latest', '-t', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA', '.']
 
   # Push the image to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
