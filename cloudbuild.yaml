@@ -12,19 +12,19 @@ steps:
     args: ['push', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:$COMMIT_SHA']
 
   # Deploy the container to Google Cloud Run
-  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  #   entrypoint: 'gcloud'
-  #   args:
-  #     - 'run'
-  #     - 'deploy'
-  #     - 'midterm'
-  #     - '--image'
-  #     - 'us-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:latest'
-  #     - '--region'
-  #     - 'us-central1'
-  #     - '--platform'
-  #     - 'managed'
-  #     - '--allow-unauthenticated' # Use '--no-allow-unauthenticated' if you don't want to allow unauthenticated access
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'midterm'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:latest'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated' # Use '--no-allow-unauthenticated' if you don't want to allow unauthenticated access
 
 images:
   - 'us-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:latest'
