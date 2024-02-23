@@ -1,6 +1,6 @@
 
 steps:
-  # Build the Docker image using the Docker Cloud Builder
+  # Build the Docker image using the Docker Cloud Builder.
   - name: 'gcr.io/cloud-builders/docker'
   #args
     args: ['build', '-t', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:latest', '-t', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:$COMMIT_SHA', '.']
