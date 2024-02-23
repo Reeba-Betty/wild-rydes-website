@@ -19,7 +19,7 @@ steps:
       - 'deploy'
       - 'midterm'
       - '--image'
-      - 'uus-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:latest'
+      - 'us-central1-docker.pkg.dev/midterm-devops/betty-repository/midterm:latest'
       - '--region'
       - 'us-central1'
       - '--platform'
