@@ -3,36 +3,19 @@ steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
   #args
-    args: ['build', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:latest', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:latest', '-t', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA', '.']
 
   # Push the image to Google Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:latest']
+    args: ['push', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:latest']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA']
+    args: ['push', 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA']
 
-  # Deploy the container to Google Cloud Run
-  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  #   entrypoint: 'gcloud'
-  #   args:
-  #     - 'run'
-  #     - 'deploy'
-  #     - 'betty-midterm'
-  #     - '--image'
-  #     - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:latest'
-  #     - '--region'
-  #     - 'northamerica-northeast2'
-  #     - '--platform'
-  #     - 'managed'
-  #     - '--allow-unauthenticated' # Use '--no-allow-unauthenticated' if you don't want to allow unauthenticated access
-
-# options:
-#   # Set logs bucket behavior to create a user-owned logs bucket in the same region as the build project
-#   logging: 'Adwaith-log'
+  
 
 images:
-  - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:latest'
-  - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA'
+  - 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:latest'
+  - 'us-central1-docker.pkg.dev/midterm-devops/betty-repository:$COMMIT_SHA'
 
 
  
