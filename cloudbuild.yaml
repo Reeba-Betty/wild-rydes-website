@@ -1,42 +1,8 @@
-# steps:
-#   # Build the Docker image using the Docker Cloud Builder
-#   - name: 'gcr.io/cloud-builders/docker'
-#     args: ['build', '-t', 'REGION-docker.pkg.dev/$PROJECT_ID/YOUR_ARTIFACT_REGISTRY_NAME/YOUR_IMAGE_NAME:$COMMIT_SHA', '.']
-
-#   # Push the image to Google Artifact Registry
-#   - name: 'gcr.io/cloud-builders/docker'
-#     args: ['push', 'REGION-docker.pkg.dev/$PROJECT_ID/YOUR_ARTIFACT_REGISTRY_NAME/YOUR_IMAGE_NAME:$COMMIT_SHA']
-
-# Deploy the container to Google Cloud Run
-  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  #   entrypoint: 'gcloud'
-  #   args:
-  #     - 'run'
-  #     - 'deploy'
-  #     - '<YOUR-GOOGLE-CLOUD-RUN-SERVICE>'
-  #     - '--image'
-  #     - '<YOUR-ARTIFACT-REGISTRY-PATH>:$COMMIT_SHA'
-  #     - '--region'
-  #     - '<YOUR-GOOGLE-CLOUD-RUN-REGION>'
-  #     - '--platform'
-  #     - 'managed'
-  #     - '--allow-unauthenticated' # Use '--no-allow-unauthenticated' if you don't want to allow unauthenticated access
-
-# options:
-#   # Set logs bucket behavior to create a user-owned logs bucket in the same region as the build project
-#   logging: 'REGIONAL_USER_OWNED_BUCKET'
-
-# images:
-#   - 'REGION-docker.pkg.dev/$PROJECT_ID/YOUR_ARTIFACT_REGISTRY_NAME/YOUR_IMAGE_NAME:$COMMIT_SHA'
-
-
-
-
 
 steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
-    # args: ['build', '-t', 'us-central1-docker.pkg.dev/devops-lab2/reeba-100890704/devops-lab2:$COMMIT_SHA', '.']
+   
     args: ['build', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:latest', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:$COMMIT_SHA', '.']
 
   # Push the image to Google Artifact Registry
@@ -46,19 +12,19 @@ steps:
     args: ['push', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:$COMMIT_SHA']
 
   # Deploy the container to Google Cloud Run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
-    args:
-      - 'run'
-      - 'deploy'
-      - 'reeba-midterm'
-      - '--image'
-      - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:latest'
-      - '--region'
-      - 'northamerica-northeast2'
-      - '--platform'
-      - 'managed'
-      - '--allow-unauthenticated' # Use '--no-allow-unauthenticated' if you don't want to allow unauthenticated access
+  # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  #   entrypoint: 'gcloud'
+  #   args:
+  #     - 'run'
+  #     - 'deploy'
+  #     - 'reeba-midterm'
+  #     - '--image'
+  #     - 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:latest'
+  #     - '--region'
+  #     - 'northamerica-northeast2'
+  #     - '--platform'
+  #     - 'managed'
+  #     - '--allow-unauthenticated' # Use '--no-allow-unauthenticated' if you don't want to allow unauthenticated access
 
 # options:
 #   # Set logs bucket behavior to create a user-owned logs bucket in the same region as the build project
