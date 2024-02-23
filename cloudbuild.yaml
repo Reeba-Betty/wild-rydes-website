@@ -2,7 +2,7 @@
 steps:
   # Build the Docker image using the Docker Cloud Builder
   - name: 'gcr.io/cloud-builders/docker'
-   
+  #args
     args: ['build', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:latest', '-t', 'northamerica-northeast2-docker.pkg.dev/midterm-devops/reeba-repository:$COMMIT_SHA', '.']
 
   # Push the image to Google Artifact Registry
